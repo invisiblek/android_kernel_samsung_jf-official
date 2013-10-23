@@ -92,7 +92,7 @@ tima_uevent_read(struct file *filp, char __user *buff,
 out:
     spin_unlock(&tima_uevent_list_lock);
     kfree(data);
-	if (retval) {
+    	if (retval) {
 		return retval;
 	} else {
 		return size;
@@ -176,7 +176,6 @@ static int __init tima_uevent_init(void)
         retval = PTR_ERR(tima_uevent_dev);
         goto error_destroy;
     }
-
     /* register this tima device with the driver core */
     retval = device_create_file(tima_uevent_dev, &dev_attr_name);
     if (retval)
